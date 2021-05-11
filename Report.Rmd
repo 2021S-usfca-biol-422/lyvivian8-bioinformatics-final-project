@@ -22,6 +22,7 @@ knitr::opts_chunk$set(echo = FALSE,
 
 This is a report on SARS-CoV-2, including some variant analysis [@koyama2020variant].
 
+
 # Methods
 
 See the set of tutorials on the [vcfR package website](https://knausb.github.io/vcfR_documentation/index.html).
