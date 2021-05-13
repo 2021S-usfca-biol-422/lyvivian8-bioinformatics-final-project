@@ -316,7 +316,7 @@ vcf_with_metadata %>%
                              "Alternate",
                              "Count"))
 ```
-**Table 2**: Top Occurrence of alternate nucleotides compared to the reference at the S gene. 
+**Table 2**: This table documents the occurrence of certain nucleotide modifications within the S gene when compared to the reference sequence. The highest modifications of nucleotide alternations is C -> A and A -> G. These large amount of nucleotide modifications indicates there are more instances of mutations that could possibly occur. 
 
 ```{r Alternate nucleotides within the N Gene}
 # Top ten counts of alternate nucleotides compared to the
