@@ -29,6 +29,12 @@ More specifically, this pandemic has tremendously affected the wine industry, su
 
 How has mobility and gene variation in Haute-de-France positive sequenced samples affect the cases of hospitalization and deaths due to COVID?
 
+This data is available from the following URL:
+https://www.ncbi.nlm.nih.gov/bioproject/724410
+
+Accession Number: PRJEB43269
+Sequencing Technology Platform: ILLUMINA 
+
 
 # Methods
 
