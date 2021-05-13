@@ -235,7 +235,7 @@ geom_point() +
          y = "Variation of the N Gene")
 # Creating a title for my diagram and labeling axis x and y.
 ```
-**Figure 6**: Looking at the variation of the N-gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. 
+**Figure 6**: This diagram outlines the variation of the N-gene because it has the second to most unique locations of SNP which indicates that there are more locations where mutations could occur. After observing this figure, we can see an upward trend in variation of the N gene which is in agreement with how the cases of corona-virus and deaths related to Sars-Cov-2 increases as time continues. 
 
 ```{r Tracking-ORF3a-Gene-Variation-Over-Time}
 # Tracking the variation of the ORF3a gene over the course of the pandemic
