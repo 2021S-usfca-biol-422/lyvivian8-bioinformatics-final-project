@@ -151,7 +151,7 @@ france_mobility %>%
        y = "Transportation by Walking Levels")
 # Creating a title for my diagram and labeling axis x and y.
 ```
-**Figure 3**: Using Covdata package to analyze walking mobility levels in the Northern Region of France during COVID through apple mobility data.
+**Figure 3**: The figure illustrates transportation by walking mobility levels from the apple mobility data examining the Nord-Pas-de-Calais region of France. Similar to the previous figure, this diagram demonstrates a correlation between transportation by walking and the number of cases and deaths related to Covid-19. Unlike the previous figure, Figure 2, this visual shows us further indication of how there could have been a spike earlier on in the number of recorded deaths related to Covid-19. However, this information still does not correlate with how low the numbers of confirmed Coronavirus cases there were in the beginning when the epidemic first began.
 
 ```{r Driving-Mobility-Data-Nord-Pas-de-Calais Region, France}
 # Using covdata to observe driving mobility in France during the Covid Pandemic
