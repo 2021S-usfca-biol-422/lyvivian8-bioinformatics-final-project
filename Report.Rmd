@@ -44,7 +44,6 @@ You may also want to use any of a range of different COVID data packages and dat
   
 In order to compare how the Corona-virus has progressed within 2019-2021, I extracted information of cases and deaths related to Sars-Cov-2 variants from covdata's database. The 'vcfR' [@vcfR] package then will be used  visualize, manipulate, and filter quality in vfcR files after it has been processed through the makefile within the git repository. Afterwards, I will use 'ggplot2' [@ggplot2] and 'ggthemes'[@ggthemes] to create visual representations of the processed samples from the Haute-de-France. The 'dplyr' [@dplyr] package will be used to further filter information from the provided datasets.
 
-
 # Results and Discussion
 
 ```{r load-packages-and-functions}
@@ -335,8 +334,7 @@ vcf_with_metadata %>%
                              "Count"))
 
 ```
-**Table 3**: Top Occurrence of alternate nucleotides compared to the reference at the N gene.
-
+**Table 3**: Examines the nucleotide alternations that occur among the N gene when compared to the reference sequence. It it important to consider how many alternations occur to determine how many possible mutations could occur. 
 ```{r Alternate nucleotides within the ORF3a Gene}
 # Top ten counts of alternate nucleotides compared to
 # the reference at the S Gene
@@ -354,6 +352,6 @@ vcf_with_metadata %>%
                              "Alternate",
                              "Count"))
 ```
-**Table 5**: Top Occurrence of alternate nucleotides compared to the reference at the ORF3a gene.
+**Table 4**: The ORF3a gene is a viral nucleic acid sequence within the Sar-Cov-2 genetic information. This table measures the top occurrence of alternate nucleotides compared to the reference at the ORF3a gene. Similar to the previous the previous table, the larger the number of alternations, the higher chance there is for mutation. 
 
 # Sources Cited
