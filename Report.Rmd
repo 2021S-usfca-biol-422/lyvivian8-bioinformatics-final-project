@@ -181,48 +181,64 @@ france_mobility %>%
 ```{r Tracking-S-Gene-Variation-Over-Time}
 # Tracking the variation of the S gene over the course of the pandemic
 vcf_with_metadata %>%
+# create a diagram of SNPs recoreded in the vcf file that were derived from processing our data in the makefile. 
   filter(!is.na(gene), gene == "S") %>%
+# Getting rid of snps that are not located within a gene. 
   group_by(Collection_Date, gene) %>%
+# Group by the collection date and the gene.
   tally() %>%
+# Counting variation of the S gene based on the collection date.
   ggplot(aes(x = (Collection_Date),
              y = n)) +
+# Used to visualize the variation of the S gene over the different collection dates on this dot plot. 
 geom_point() +
     labs(title = "Tracking S Gene Variation Over Time",
          x = "Date",
          y = "Variation of the S Gene")
+# Creating a title for my diagram and labeling axis x and y.
 
 ```
-**Figure 5**: Looking at the variation of the S-gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. 
+**Figure 5**: This figure demonstrates the amount of variation amongst the s-gene of the Sars-Cov-2 Haute-de-France positive sequenced samples based on the collection dates. As we can see over the period of the different collection dates the variation of S-gene increases. This indicates a susceptibility of possibly more mutations that can allow Sar-Cov-2 to become even more transmissible. 
 
 ```{r Tracking-N-Gene-Variation-Over-Time}
 # Tracking the variation of the N gene over the course of the pandemic
 vcf_with_metadata %>%
+# create a diagram of SNPs recoreded in the vcf file that were derived from processing our data in the makefile. 
   filter(!is.na(gene), gene == "N") %>%
+# Getting rid of snps that are not located within a gene.
   group_by(Collection_Date, gene) %>%
+# Group by the collection date and the gene.
   tally() %>%
+# Counting variation of the N gene based on the collection date.
   ggplot(aes(x = (Collection_Date),
              y = n)) +
+# Used to visualize the variation of the N gene over the different collection dates on this dot plot. 
 geom_point() +
     labs(title = "Tracking N Gene Variation Over Time",
          x = "Date",
          y = "Variation of the N Gene")
-
-
+# Creating a title for my diagram and labeling axis x and y.
 ```
 **Figure 6**: Looking at the variation of the N-gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. 
 
 ```{r Tracking-ORF3a-Gene-Variation-Over-Time}
-# Tracking the variation of the N gene over the course of the pandemic
+# Tracking the variation of the ORF3a gene over the course of the pandemic
 vcf_with_metadata %>%
+# create a diagram of SNPs recoreded in the vcf file that were derived from processing our data in the makefile.
   filter(!is.na(gene), gene == "ORF3a") %>%
+# Getting rid of snps that are not located within a gene.
   group_by(Collection_Date, gene) %>%
+# Group by the collection date and the gene.
   tally() %>%
+# Counting variation of the ORF3a gene based on the collection date.
   ggplot(aes(x = (Collection_Date),
              y = n)) +
+# Used to visualize the variation of the ORF3a gene over the different collection dates on this dot plot. 
 geom_point() +
     labs(title = "Tracking ORF3a Gene Variation Over Time",
          x = "Date",
          y = "Variation of the ORF3a Gene")
+# Creating a title for my diagram and labeling axis x and y.
 ```
 **Figure 7**: Looking at the variation of the ORF3a gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. 
 
