@@ -271,7 +271,7 @@ ggplot(aes(x = date,
        y = "Number of Positive Cases")
 
 ```
-**Figure 8**: Tracking the number of COVID cases over time. 
+**Figure 8**: This figure records the amount of positive sampled covid cases in the whole country of France. The figure also includes statistics from the Northern region of France. Two main characteristics to notice here is that there is no huge spike in cases towards April 2020. On the other hand, there is a large number of cases between 2020-07 and 2021-01. 
 
 ```{r Tracking Deaths due to Covid in France}
 covnat_weekly %>%
@@ -283,7 +283,7 @@ ggplot(aes(x = date,
        x = "Date",
        y = "Number of Deaths")
 ```
-**Figure 9**: Tracking the number of deaths related to COVID in France.
+**Figure 9**: The figure tracks the amount of deaths that have occurred between 2020 and 2021 during the Covid epidemic in France. As we can observe from this figure, there is a huge spike in deaths starting from March-April 2020 and then there is a sudden drop before exponentially increasing between July 2020 - January 2021. 
 
 # Tables
 
