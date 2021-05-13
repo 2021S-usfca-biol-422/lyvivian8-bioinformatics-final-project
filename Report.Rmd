@@ -85,13 +85,13 @@ vcf_with_metadata <- add_genes_metadata_to_vcfstack(
 ```{r count-of-distinct-SNPs-in-Haute-de-France-Samples}
 vcf_with_metadata %>%
 # create a plot of unique SNP locations within each gene across all samples
-  filter(!is.na(gene)) %>% 
+  filter(!is.na(gene)) %>%
 # get rid of SNPs not in gene regions
   group_by(gene, pos) %>%
-  tally() %>% 
+  tally() %>%
 # this gives a column n for the number of gene by position
   group_by(gene) %>%
-  tally() %>% 
+  tally() %>%
 # this collapses that down to the number of unique SNP locations
   ggplot(aes(x = gene,
              y = n)) +
@@ -105,41 +105,50 @@ vcf_with_metadata %>%
 **Figure 1**: According to this figure which captures the unique SNPs locations within genes across all the sequenced samples, the N gene, S gene, and ORF3a gene contain the most SNPs location susceptible to mutation.  
 
 ```{r Transit-Mobility-Data-Nord-Pas-de-Calais Region, France}
-# Using apple mobility data set to observe how mobility in the Nord-Pas-de-Calais Region in France compares to the recorded cases and deaths from Covdata.
+# Using apple mobility data set to observe how mobility in the
+# Nord-Pas-de-Calais Region in France compares to the recorded cases and
+# deaths from Covdata.
 
 france_mobility <- apple_mobility %>%
-# Using apple mobility dataset to find France mobility data for transportation by Transit   
+# Using apple mobility dataset to find France mobility
+# data for transportation by Transit
   filter(region == "Nord-Pas-de-Calais Region") %>%
-# This statement filters the information to the Northern Region of France where Haut-de-France is located. 
+# This statement filters the information to the
+# Northern Region of France where Haut-de-France is located.
   filter(transportation_type == "transit") %>%
 # Filter transportation type to equal only transit
   filter(date >= as.Date("2020-03-01") & date <= as.Date("2021-05-01"))
-# I decided to filter the date to only include mobility from when the epidemic began until now. 
+# I decided to filter the date to only include mobility from
+# when the epidemic began until now.
 
 france_mobility %>%
   ggplot(aes(x =  france_mobility$date,
              y =  france_mobility$score)) +
-#ggplot is being used to graph the mobility score based on dates. 
+#ggplot is being used to graph the mobility score based on dates.
   geom_line() +
   labs(title = "Northern Region of France Mobility during COVID(Transit)",
        x = "Date",
        y = "Transportation by Transit Levels")
-# Creating a title for my diagram and labeling axis x and y. 
-
+# Creating a title for my diagram and labeling axis x and y.
 ```
 **Figure 2**: In this figure that diagrams transportation by transit mobility from the apple mobility dataset, there are two significant peaks that occur from July 2020 - October 2020. Compared to the visualization that illustrates the cases and numbers of deaths, the mobility by transit transportation correlates with the the trend shown in Figure 8 and Figure 9. However, this does not explain how the the amount of covid cases towards the beginning of this epidemic does not correlate to the amount of deaths that occurred. Further analysis is performed to examine this characteristic. 
 
 ```{r Walking-Mobility-Data-Nord-Pas-de-Calais Region, France}
-# Using apple mobility data set to observe how mobility in the Nord-Pas-de-Calais Region in France compares to the recorded cases and deaths from Covdata.
+# Using apple mobility data set to observe how mobility in the
+# Nord-Pas-de-Calais Region in France compares to the recorded
+# cases and deaths from Covdata.
 
 france_mobility <- apple_mobility %>%
-# Using apple mobility dataset to find France mobility data for transportation by walking. 
+# Using apple mobility dataset to find France mobility data for
+# transportation by walking.
   filter(region == "Nord-Pas-de-Calais Region") %>%
-# This statement filters the information to the Northern Region of France where Haut-de-France is located.
+# This statement filters the information to the Northern Region
+# of France where Haut-de-France is located.
   filter(transportation_type == "walking") %>%
 # Filter transportation type to equal only walking
   filter(date >= as.Date("2020-03-01") & date <= as.Date("2021-05-01"))
-# I decided to filter the date to only include mobility from when the epidemic began until now. 
+# I decided to filter the date to only include mobility from when
+# the epidemic began until now.
 
 france_mobility %>%
   ggplot(aes(x =  france_mobility$date,
@@ -157,13 +166,16 @@ france_mobility %>%
 # Using covdata to observe driving mobility in France during the Covid Pandemic
 
 france_mobility <- apple_mobility %>%
-# Using apple mobility dataset to find France mobility data for transportation by walking. 
+# Using apple mobility dataset to find France mobility data
+# for transportation by walking.
   filter(region == "Nord-Pas-de-Calais Region") %>%
-# This statement filters the information to the Northern Region of France where Haut-de-France is located.
+# This statement filters the information to the Northern
+# Region of France where Haut-de-France is located.
   filter(transportation_type == "driving") %>%
 # Filter transportation type to equal only driving
   filter(date >= as.Date("2020-03-01") & date <= as.Date("2021-05-01"))
-# I decided to filter the date to only include mobility from when the epidemic began until now. 
+# I decided to filter the date to only include mobility from
+# when the epidemic began until now.
 
 france_mobility %>%
   ggplot(aes(x =  france_mobility$date,
@@ -181,16 +193,18 @@ france_mobility %>%
 ```{r Tracking-S-Gene-Variation-Over-Time}
 # Tracking the variation of the S gene over the course of the pandemic
 vcf_with_metadata %>%
-# create a diagram of SNPs recoreded in the vcf file that were derived from processing our data in the makefile. 
+# Create a diagram of SNPs recoreded in the vcf file that were
+# derived from processing our data in the makefile.
   filter(!is.na(gene), gene == "S") %>%
-# Getting rid of snps that are not located within a gene. 
+# Getting rid of snps that are not located within a gene.
   group_by(Collection_Date, gene) %>%
 # Group by the collection date and the gene.
   tally() %>%
 # Counting variation of the S gene based on the collection date.
   ggplot(aes(x = (Collection_Date),
              y = n)) +
-# Used to visualize the variation of the S gene over the different collection dates on this dot plot. 
+# Used to visualize the variation of the S gene over the
+# different collection dates on this dot plot.
 geom_point() +
     labs(title = "Tracking S Gene Variation Over Time",
          x = "Date",
@@ -203,7 +217,8 @@ geom_point() +
 ```{r Tracking-N-Gene-Variation-Over-Time}
 # Tracking the variation of the N gene over the course of the pandemic
 vcf_with_metadata %>%
-# create a diagram of SNPs recoreded in the vcf file that were derived from processing our data in the makefile. 
+# create a diagram of SNPs recoreded in the vcf file that
+# were derived from processing our data in the makefile.
   filter(!is.na(gene), gene == "N") %>%
 # Getting rid of snps that are not located within a gene.
   group_by(Collection_Date, gene) %>%
@@ -212,7 +227,8 @@ vcf_with_metadata %>%
 # Counting variation of the N gene based on the collection date.
   ggplot(aes(x = (Collection_Date),
              y = n)) +
-# Used to visualize the variation of the N gene over the different collection dates on this dot plot. 
+# Used to visualize the variation of the N gene over the
+# different collection dates on this dot plot.
 geom_point() +
     labs(title = "Tracking N Gene Variation Over Time",
          x = "Date",
@@ -224,7 +240,8 @@ geom_point() +
 ```{r Tracking-ORF3a-Gene-Variation-Over-Time}
 # Tracking the variation of the ORF3a gene over the course of the pandemic
 vcf_with_metadata %>%
-# create a diagram of SNPs recoreded in the vcf file that were derived from processing our data in the makefile.
+# Create a diagram of SNPs recoreded in the vcf file that
+# were derived from processing our data in the makefile.
   filter(!is.na(gene), gene == "ORF3a") %>%
 # Getting rid of snps that are not located within a gene.
   group_by(Collection_Date, gene) %>%
@@ -233,7 +250,8 @@ vcf_with_metadata %>%
 # Counting variation of the ORF3a gene based on the collection date.
   ggplot(aes(x = (Collection_Date),
              y = n)) +
-# Used to visualize the variation of the ORF3a gene over the different collection dates on this dot plot. 
+# Used to visualize the variation of the ORF3a gene over the
+# different collection dates on this dot plot.
 geom_point() +
     labs(title = "Tracking ORF3a Gene Variation Over Time",
          x = "Date",
