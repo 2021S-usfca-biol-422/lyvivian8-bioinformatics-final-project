@@ -19,8 +19,15 @@ knitr::opts_chunk$set(echo = FALSE,
 ```
 
 # Background and Overview
+This is a report on SARS-Cov-2, including some variant analysis [@koyama2020variant].
 
-This is a report on SARS-CoV-2, including some variant analysis [@koyama2020variant].
+This rmarkdown file will use the 'vcfR'[@vcfR], ggplot2'[@ggplot2], 'dplyr'[@dplyr], and 'covdata'[@covdata] packages in order to analyze positive sequenced Sars-Cov-2 samples from the Haute-de-France after it has been processed: 
+
+Haute-de-France directly translates to the North of France is comprised of 5 cities: Oise, Aisne, Nord, Pas-de-Calais, and Somme. Towards the beginning of the pandemic back in March 2020, France recorded about only about 30 confirmed cases of the Corona-virus. However, the few confirmed cases of the Corona-virus does not explain the huge spike in Covid-related deaths. More analysis is required to understand how cases and reported deaths have increased.
+
+More specifically, this pandemic has tremendously affected the wine industry, suburban neighborhoods, holidays, rituals, and most importantly France's economy. The objective of this analysis is to thoroughly comprehend how variants of Sars-Cov-2 has affected hospitalizations due to COVID and recorded deaths due to COVID by analyzing mobility information and variant tracking of genes. 
+
+How has mobility and gene variation in Haute-de-France positive sequenced samples affect the cases of hospitalization and deaths due to COVID?
 
 
 # Methods
@@ -34,8 +41,9 @@ You may also want to use any of a range of different COVID data packages and dat
 * https://ropensci.org/blog/2020/10/20/searching-medrxivr-and-biorxiv-preprint-data/
 * https://covidtracking.com/data/api
   * `readr::read_csv("https://api.covidtracking.com/v1/states/daily.csv")`
+  
+In order to compare how the Corona-virus has progressed within 2019-2021, I extracted information of cases and deaths related to Sars-Cov-2 variants from covdata's database. The 'vcfR' [@vcfR] package then will be used  visualize, manipulate, and filter quality in vfcR files after it has been processed through the makefile within the git repository. Afterwards, I will use 'ggplot2' [@ggplot2] and 'ggthemes'[@ggthemes] to create visual representations of the processed samples from the Haute-de-France. The 'dplyr' [@dplyr] package will be used to further filter information from the provided datasets.
 
-## Subsections are ok too
 
 # Results and Discussion
 
@@ -44,6 +52,8 @@ library("vcfR")
 library("ggplot2")
 library("dplyr")
 library("ggthemes")
+library("covid19.analytics")
+library("covdata")
 
 # this loads all function files in the code/functions directory
 function_paths <- list.files("code/functions", full.names = TRUE)
@@ -72,23 +82,175 @@ vcf_with_metadata <- add_genes_metadata_to_vcfstack(
 
 # Figures
 
-```{r sample-plot}
-# create a plot of unique SNP locations within each gene across all samples
+```{r count-of-distinct-SNPs-in-Haute-de-France-Samples}
 vcf_with_metadata %>%
-  filter(!is.na(gene)) %>% # get rid of SNPs not in gene regions
+# create a plot of unique SNP locations within each gene across all samples
+  filter(!is.na(gene)) %>% 
+# get rid of SNPs not in gene regions
   group_by(gene, pos) %>%
-  tally() %>% # this gives a column n for the number of gene by position
+  tally() %>% 
+# this gives a column n for the number of gene by position
   group_by(gene) %>%
-  tally() %>% # this collapses that down to the number of unique SNP locations
+  tally() %>% 
+# this collapses that down to the number of unique SNP locations
   ggplot(aes(x = gene,
              y = n)) +
     geom_col() +
-    labs(title = "Count of distinct SNPs in Named SARS-CoV-2 Genes",
-         x = "Gene Name") +
+    labs(title = "Count of distinct SNPs in Haute-de-France SARS-CoV-2 Genes",
+         x = "Gene Name",
+         y = "Number of Distinct SNPs") +
   theme_few() # get rid of the grey background
 ```
 
-**Figure 1**: N and S genes have more unique SNPs in the set of samples analyzed.
+**Figure 1**: According to this figure which captures the unique SNPs locations within genes across all the sequenced samples, the N gene, S gene, and ORF3a gene contain the most SNPs location susceptible to mutation.  
+
+```{r Transit-Mobility-Data-Nord-Pas-de-Calais Region, France}
+# Using apple mobility data set to observe how mobility in the Nord-Pas-de-Calais Region in France compares to the recorded cases and deaths from Covdata.
+
+france_mobility <- apple_mobility %>%
+# Using apple mobility dataset to find France mobility data for transportation by Transit   
+  filter(region == "Nord-Pas-de-Calais Region") %>%
+# This statement filters the information to the Northern Region of France where Haut-de-France is located. 
+  filter(transportation_type == "transit") %>%
+# Filter transportation type to equal only transit
+  filter(date >= as.Date("2020-03-01") & date <= as.Date("2021-05-01"))
+# I decided to filter the date to only include mobility from when the epidemic began until now. 
+
+france_mobility %>%
+  ggplot(aes(x =  france_mobility$date,
+             y =  france_mobility$score)) +
+#ggplot is being used to graph the mobility score based on dates. 
+  geom_line() +
+  labs(title = "Northern Region of France Mobility during COVID(Transit)",
+       x = "Date",
+       y = "Transportation by Transit Levels")
+# Creating a title for my diagram and labeling axis x and y. 
+
+```
+**Figure 2**: In this figure that diagrams transportation by transit mobility from the apple mobility dataset, there are two significant peaks that occur from July 2020 - October 2020. Compared to the visualization that illustrates the cases and numbers of deaths, the mobility by transit transportation correlates with the the trend shown in Figure 8 and Figure 9. However, this does not explain how the the amount of covid cases towards the beginning of this epidemic does not correlate to the amount of deaths that occurred. Further analysis is performed to examine this characteristic. 
+
+```{r Walking-Mobility-Data-Nord-Pas-de-Calais Region, France}
+# Using apple mobility data set to observe how mobility in the Nord-Pas-de-Calais Region in France compares to the recorded cases and deaths from Covdata.
+
+france_mobility <- apple_mobility %>%
+# Using apple mobility dataset to find France mobility data for transportation by walking. 
+  filter(region == "Nord-Pas-de-Calais Region") %>%
+# This statement filters the information to the Northern Region of France where Haut-de-France is located.
+  filter(transportation_type == "walking") %>%
+# Filter transportation type to equal only walking
+  filter(date >= as.Date("2020-03-01") & date <= as.Date("2021-05-01"))
+# I decided to filter the date to only include mobility from when the epidemic began until now. 
+
+france_mobility %>%
+  ggplot(aes(x =  france_mobility$date,
+             y =  france_mobility$score)) +
+#ggplot is being used to graph the mobility score based on dates.
+  geom_line() +
+  labs(title = "Northern Region of France Mobility during COVID (Walking)",
+       x = "Date",
+       y = "Transportation by Walking Levels")
+# Creating a title for my diagram and labeling axis x and y.
+```
+**Figure 3**: Using Covdata package to analyze walking mobility levels in the Northern Region of France during COVID through apple mobility data.
+
+```{r Driving-Mobility-Data-Nord-Pas-de-Calais Region, France}
+# Using covdata to observe driving mobility in France during the Covid Pandemic
+
+france_mobility <- apple_mobility %>%
+# Using apple mobility dataset to find France mobility data for transportation by walking. 
+  filter(region == "Nord-Pas-de-Calais Region") %>%
+# This statement filters the information to the Northern Region of France where Haut-de-France is located.
+  filter(transportation_type == "driving") %>%
+# Filter transportation type to equal only driving
+  filter(date >= as.Date("2020-03-01") & date <= as.Date("2021-05-01"))
+# I decided to filter the date to only include mobility from when the epidemic began until now. 
+
+france_mobility %>%
+  ggplot(aes(x =  france_mobility$date,
+             y =  france_mobility$score)) +
+#ggplot is being used to graph the mobility score based on dates.
+  geom_line() +
+  labs(title = "Northern Region of France Mobility during COVID (Driving)",
+       x = "Date",
+       y = "Transportation by Driving Levels")
+# Creating a title for my diagram and labeling axis x and y.
+
+```
+
+**Figure 4**: Using Covdata package to analyze driving mobility levels in the Northern Region of France during COVID through apple mobility data.
+
+```{r Tracking-S-Gene-Variation-Over-Time}
+# Tracking the variation of the S gene over the course of the pandemic
+vcf_with_metadata %>%
+  filter(!is.na(gene), gene == "S") %>%
+  group_by(Collection_Date, gene) %>%
+  tally() %>%
+  ggplot(aes(x = (Collection_Date),
+             y = n)) +
+geom_point() +
+    labs(title = "Tracking S Gene Variation Over Time",
+         x = "Date",
+         y = "Variation of the S Gene")
+
+```
+**Figure 5**: Looking at the variation of the S-gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. 
+
+```{r Tracking-N-Gene-Variation-Over-Time}
+# Tracking the variation of the N gene over the course of the pandemic
+vcf_with_metadata %>%
+  filter(!is.na(gene), gene == "N") %>%
+  group_by(Collection_Date, gene) %>%
+  tally() %>%
+  ggplot(aes(x = (Collection_Date),
+             y = n)) +
+geom_point() +
+    labs(title = "Tracking N Gene Variation Over Time",
+         x = "Date",
+         y = "Variation of the N Gene")
+
+
+```
+**Figure 6**: Looking at the variation of the N-gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. 
+
+```{r Tracking-ORF3a-Gene-Variation-Over-Time}
+# Tracking the variation of the N gene over the course of the pandemic
+vcf_with_metadata %>%
+  filter(!is.na(gene), gene == "ORF3a") %>%
+  group_by(Collection_Date, gene) %>%
+  tally() %>%
+  ggplot(aes(x = (Collection_Date),
+             y = n)) +
+geom_point() +
+    labs(title = "Tracking ORF3a Gene Variation Over Time",
+         x = "Date",
+         y = "Variation of the ORF3a Gene")
+```
+**Figure 7**: Looking at the variation of the ORF3a gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. 
+
+```{r France-data-weekly}
+covnat_weekly %>%
+  filter(cname == "France") %>%
+ggplot(aes(x = date,
+           y = cases)) +
+  geom_line() +
+  labs(title = "Amount of COVID cases Weekly in France",
+       x = "Date",
+       y = "Number of Positive Cases")
+
+```
+**Figure 8**: Tracking the number of COVID cases over time. 
+
+```{r Tracking Deaths due to Covid in France}
+covnat_weekly %>%
+  filter(cname == "France") %>%
+ggplot(aes(x = date,
+           y = deaths)) +
+  geom_line() +
+  labs(title = "Tracking Amount of Deaths in France",
+       x = "Date",
+       y = "Number of Deaths")
+```
+**Figure 9**: Tracking the number of deaths related to COVID in France.
 
 # Tables
 
@@ -104,5 +266,61 @@ gene_table %>%
 ```
 
 **Table 1**: Gene names, locations, and lengths in the SARS-CoV-2 genome. Higher SNP counts in the S and N genes may be related to the larger size of these genes.
+
+```{r Alternate nucleotides within the S Gene}
+# Top ten counts of alternate nucleotides compared to the
+# reference at the S Gene
+vcf_with_metadata %>%
+  filter(!is.na(gene)) %>%
+  group_by(gene, ref, alt) %>%
+  tally() %>%
+  select(gene, ref, alt, n) %>%
+  filter(gene == "S") %>%
+  arrange(desc(n)) %>%
+  head(10) %>%
+  knitr::kable(col.names = c("Gene",
+                             "Reference",
+                             "Alternate",
+                             "Count"))
+```
+**Table 2**: Top Occurrence of alternate nucleotides compared to the reference at the S gene. 
+
+```{r Alternate nucleotides within the N Gene}
+# Top ten counts of alternate nucleotides compared to the
+# reference at the S Gene
+vcf_with_metadata %>%
+  filter(!is.na(gene)) %>%
+  group_by(gene, ref, alt) %>%
+  tally() %>%
+  select(gene, ref, alt, n) %>%
+  filter(gene == "N") %>%
+  arrange(desc(n)) %>%
+  head(10) %>%
+  knitr::kable(col.names = c("Gene",
+                             "Reference",
+                             "Alternate",
+                             "Count"))
+
+```
+**Table 3**: Top Occurrence of alternate nucleotides compared to the reference at the N gene.
+
+```{r Alternate nucleotides within the ORF3a Gene}
+# Top ten counts of alternate nucleotides compared to
+# the reference at the S Gene
+
+vcf_with_metadata %>%
+  filter(!is.na(gene)) %>%
+  group_by(gene, ref, alt) %>%
+  tally() %>%
+  select(gene, ref, alt, n) %>%
+  filter(gene == "ORF3a") %>%
+  arrange(desc(n)) %>%
+  head(10) %>%
+  knitr::kable(col.names = c("Gene",
+                             "Reference",
+                             "Alternate",
+                             "Count"))
+```
+**Table 5**: Top Occurrence of alternate nucleotides compared to the reference at the ORF3a gene.
 
 # Sources Cited
