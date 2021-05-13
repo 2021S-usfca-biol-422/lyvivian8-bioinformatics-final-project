@@ -258,7 +258,7 @@ geom_point() +
          y = "Variation of the ORF3a Gene")
 # Creating a title for my diagram and labeling axis x and y.
 ```
-**Figure 7**: Looking at the variation of the ORF3a gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. 
+**Figure 7**: Looking at the variation of the ORF3a gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. The upward trend over the course of the collection dates are consistent with the cases and deaths related to Sars-Cov-2. 
 
 ```{r France-data-weekly}
 covnat_weekly %>%
