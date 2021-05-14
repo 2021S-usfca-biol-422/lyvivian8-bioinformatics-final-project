@@ -373,3 +373,14 @@ vcf_with_metadata %>%
 **Table 4**: The ORF3a gene is a viral nucleic acid sequence within the Sar-Cov-2 genetic information. This table measures the top occurrence of alternate nucleotides compared to the reference at the ORF3a gene. Similar to the previous the previous table, the larger the number of alternations, the higher chance there is for mutation. 
 
 # Sources Cited
+
+https://pubmed.ncbi.nlm.nih.gov/32333222/
+
+https://www.nature.com/articles/s41586-020-03095-6
+
+https://wwwnc.cdc.gov/eid/article/27/5/21-0397_article
+
+https://pubmed.ncbi.nlm.nih.gov/32404476/
+
+https://www.nytimes.com/interactive/2020/world/europe/france-coronavirus-cases.html
+
