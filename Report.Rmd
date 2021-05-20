@@ -30,7 +30,7 @@ How has mobility and gene variation in Haute-de-France positive sequenced sample
 
 # Methods
 
-In order to compare how the Corona-virus has progressed within 2019-2021, I extracted information of cases and deaths related to SARS-CoV-2 variants from covdata's database. The `vcfR` [@vcfR] package then will be used  visualize, manipulate, and filter quality in vfcR files after it has been processed through the makefile within the git repository. Afterwards, I will use `ggplot2` and `ggthemes` [@Arnold2016ggthemes] to create visual representations of the processed samples from the Haute-de-France. The `dplyr` [@dplyr] package will be used to further filter information from the provided datasets.
+In order to compare how the Corona-virus has progressed within 2019-2021, I extracted information of cases and deaths related to SARS-CoV-2 variants from covdata's database. The `vcfR` [@vcfR] package then will be used  visualize, manipulate, and filter quality in vfcR files after it has been processed through the makefile within the git repository. Afterwards, I will use `ggplot2`[@wickham2016ggplot2] and `ggthemes` [@Arnold2016ggthemes] to create visual representations of the processed samples from the Haute-de-France. The `dplyr` [@dplyr] package will be used to further filter information from the provided datasets.
 
 This data is available from the following URL:
 https://www.ncbi.nlm.nih.gov/bioproject/724410
