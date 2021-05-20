@@ -100,7 +100,7 @@ vcf_with_metadata <- add_genes_metadata_to_vcfstack(
 
 # Figures
 
-```{r count-of-distinct-SNPs-in-Haute-de-France-Samples}
+```{r count-of-distinct-snps-in-haute-de-france-samples}
 vcf_with_metadata %>%
 # create a plot of unique SNP locations within each gene across all samples
   filter(!is.na(gene)) %>%
@@ -122,7 +122,7 @@ vcf_with_metadata %>%
 
 **Figure 1**: According to this figure which captures the unique SNPs locations within genes across all the sequenced samples, the N gene, S gene, and ORF3a gene contain the most SNPs location susceptible to mutation. 
 
-```{r France-data-weekly}
+```{r france-data-weekly}
 covnat_weekly %>%
   filter(cname == "France") %>%
 ggplot(aes(x = date,
@@ -135,7 +135,7 @@ ggplot(aes(x = date,
 ```
 **Figure 2**: This figure records the amount of positive sampled COVID-19 cases in the whole country of France. The figure also includes statistics from the Northern region of France. Two main characteristics to notice here is that there is no huge spike in cases towards April 2020. On the other hand, there is a large number of cases between 2020-07 and 2021-01. 
 
-```{r Tracking Deaths due to Covid in France}
+```{r tracking-deaths-due-to-covid-in-France}
 covnat_weekly %>%
   filter(cname == "France") %>%
 ggplot(aes(x = date,
@@ -147,7 +147,7 @@ ggplot(aes(x = date,
 ```
 **Figure 3**: The figure tracks the amount of deaths that have occurred between 2020 and 2021 during the COVID-19 epidemic in France. As we can observe from this figure, there is a huge spike in deaths starting from March-April 2020 and then there is a sudden drop before exponentially increasing between July 2020 - January 2021. 
 
-```{r Transit-Mobility-Data-Nord-Pas-de-Calais Region, France}
+```{r transit-mobility-data-nord-pas-de-calais-region-france}
 # Using apple mobility data set to observe how mobility in the
 # Nord-Pas-de-Calais Region in France compares to the recorded cases and
 # deaths from Covdata.
@@ -176,7 +176,7 @@ france_mobility %>%
 ```
 **Figure 4**: In this figure that diagrams transportation by transit mobility from the apple mobility dataset, there are two significant peaks that occur from July 2020 - October 2020. Compared to the visualization that illustrates the cases and numbers of deaths, the mobility by transit transportation correlates with the the trend shown in Figure 8 and Figure 9. However, this does not explain how the the amount of COVID-19 cases towards the beginning of this epidemic does not correlate to the amount of deaths that occurred. Further analysis is performed to examine this characteristic. 
 
-```{r Walking-Mobility-Data-Nord-Pas-de-Calais Region, France}
+```{r walking-mobility-data-nord-pas-de-calais-region-france}
 # Using apple mobility data set to observe how mobility in the
 # Nord-Pas-de-Calais Region in France compares to the recorded
 # cases and deaths from Covdata.
@@ -205,7 +205,7 @@ france_mobility %>%
 ```
 **Figure 5**: The figure illustrates transportation by walking mobility levels from the apple mobility data examining the Nord-Pas-de-Calais region of France. Similar to the previous figure, this diagram demonstrates a correlation between transportation by walking and the number of cases and deaths related to COVID-19. Unlike the previous figure, Figure 2, this visual shows us further indication of how there could have been a spike earlier on in the number of recorded deaths related to COVID-19. As we can observe from this figure, there are three prominent peaks that occur in March 2020, July 2020, and October 2020. However, this information still does not correlate with how low the numbers of confirmed Corona-virus cases there were in the beginning when the epidemic first began.
 
-```{r Driving-Mobility-Data-Nord-Pas-de-Calais Region, France}
+```{r driving-mobility-data-nord-pas-de-calais-region-france}
 # Using covdata to observe driving mobility in France during the Covid Pandemic
 
 france_mobility <- apple_mobility %>%
@@ -233,7 +233,7 @@ france_mobility %>%
 ```
 **Figure 6**: This figure demonstrates tranportation by dirivng mobility levels over the course of 2020 until 2021 during the Corona-virus epidemic in the Northern Region of France. From the visual illustrations of this figure, we can come to the conclusion that driving is much more preferable than taking the transit or walking. Additionally, given the patterns of the information presented in this diagram, we can associate this information with the numbers of confirmed cases and deaths related to the novel Corona-virus. 
 
-```{r Tracking-S-Gene-Variation-Over-Time}
+```{r tracking-s-gene-variation-over-time}
 # Tracking the variation of the S gene over the course of the pandemic
 vcf_with_metadata %>%
 # Create a diagram of SNPs recoreded in the vcf file that were
@@ -257,7 +257,7 @@ geom_point() +
 ```
 **Figure 7**: This figure demonstrates the amount of variation amongst the s-gene of the SARS-CoV-2 Haute-de-France positive sequenced samples based on the collection dates. As we can see over the period of the different collection dates the variation of S-gene increases. This indicates a susceptibility of possibly more mutations that can allow SARS-CoV-2 to become even more transmissible. 
 
-```{r Tracking-N-Gene-Variation-Over-Time}
+```{r tracking-n-gene-variation-over-time}
 # Tracking the variation of the N gene over the course of the pandemic
 vcf_with_metadata %>%
 # create a diagram of SNPs recoreded in the vcf file that
@@ -280,7 +280,7 @@ geom_point() +
 ```
 **Figure 8**: This diagram outlines the variation of the N-gene because it has the second to most unique locations of SNP which indicates that there are more locations where mutations could occur. After observing this figure, we can see an upward trend in variation of the N gene which is in agreement with how the cases of Corona-virus and deaths related to SARS-CoV-2 increases as time continues. 
 
-```{r Tracking-ORF3a-Gene-Variation-Over-Time}
+```{r tracking-orf3a-gene-variation-over-time}
 # Tracking the variation of the ORF3a gene over the course of the pandemic
 vcf_with_metadata %>%
 # Create a diagram of SNPs recoreded in the vcf file that
@@ -318,7 +318,7 @@ gene_table %>%
 
 **Table 1**: Gene names, locations, and lengths in the SARS-CoV-2 genome. Higher SNP counts in the S and N genes may be related to the larger size of these genes.
 
-```{r Alternate nucleotides within the S Gene}
+```{r alternate-nucleotides-within-the-s-gene}
 # Top ten counts of alternate nucleotides compared to the
 # reference at the S Gene
 vcf_with_metadata %>%
@@ -336,7 +336,7 @@ vcf_with_metadata %>%
 ```
 **Table 2**: This table documents the occurrence of certain nucleotide modifications within the S gene when compared to the reference sequence. The highest modifications of nucleotide alternations is C -> A and A -> G. These large amount of nucleotide modifications indicates there are more instances of mutations that could possibly occur. 
 
-```{r Alternate nucleotides within the N Gene}
+```{r alternate-nucleotides-within-the-n-gene}
 # Top ten counts of alternate nucleotides compared to the
 # reference at the S Gene
 vcf_with_metadata %>%
@@ -354,7 +354,7 @@ vcf_with_metadata %>%
 
 ```
 **Table 3**: Examines the nucleotide alternations that occur among the N gene when compared to the reference sequence. It it important to consider how many alternations occur to determine how many possible mutations could occur. 
-```{r Alternate nucleotides within the ORF3a Gene}
+```{r alternate-nucleotides-within-the-orf3a-gene}
 # Top ten counts of alternate nucleotides compared to
 # the reference at the S Gene
 
