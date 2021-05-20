@@ -30,16 +30,6 @@ How has mobility and gene variation in Haute-de-France positive sequenced sample
 
 # Methods
 
-See the set of tutorials on the [vcfR package website](https://knausb.github.io/vcfR_documentation/index.html).
-
-You may also want to use any of a range of different COVID data packages and data sources:
-
-* https://kjhealy.github.io/covdata/
-* https://github.com/como-ph/oxcovid19
-* https://ropensci.org/blog/2020/10/20/searching-medrxivr-and-biorxiv-preprint-data/
-* https://covidtracking.com/data/api
-  * `readr::read_csv("https://api.covidtracking.com/v1/states/daily.csv")`
-  
 In order to compare how the Corona-virus has progressed within 2019-2021, I extracted information of cases and deaths related to SARS-CoV-2 variants from covdata's database. The `vcfR` [@vcfR] package then will be used  visualize, manipulate, and filter quality in vfcR files after it has been processed through the makefile within the git repository. Afterwards, I will use `ggplot2` and `ggthemes` [@ggthemes] to create visual representations of the processed samples from the Haute-de-France. The `dplyr` [@dplyr] package will be used to further filter information from the provided datasets.
 
 This data is available from the following URL:
