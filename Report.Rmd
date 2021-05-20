@@ -51,7 +51,7 @@ In order to compare how the Corona-virus has progressed within 2019-2021, I extr
 
 # Results 
 
-The mobility trends correlate to the cases of COVID and deaths that occur. However, this still does not explain the very low cases of COVID in the beginning despite huge spike in deaths. The changes in variation of the genes demonstrate how Sars-Cov-2 is able to mutate and become more transmissible over the different collection dates. The amount of mutations that occur amongst the genes demonstrate the number of possible mutations that have affected the Sars-Cov-2 variant. After research it is possible that the low cases in the beginning was due to lack of testing kits available and complicated methods to reach medical attention. 
+The mobility trends correlate to the cases of COVID-19 and deaths that occur. However, this still does not explain the very low cases of COVID-19 in the beginning despite huge spike in deaths. The changes in variation of the genes demonstrate how SARS-CoV-2 is able to mutate and become more transmissible over the different collection dates. The amount of mutations that occur amongst the genes demonstrate the number of possible mutations that have affected the SARS-CoV-2 variant. After research it is possible that the low cases in the beginning was due to lack of testing kits available and complicated methods to reach medical attention. 
 
 # Discussion
 
