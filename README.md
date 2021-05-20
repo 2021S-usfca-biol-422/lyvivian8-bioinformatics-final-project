@@ -1,6 +1,6 @@
 # README
 
-Analysis of Sars-Cov2 Sequenced Positive Samples from Haute-de-France 
+Completed Analysis of SARS-CoV-2 Sequenced Positive Samples from Haute-de-France 
 
 Vivian Ly 
 vlly2@dons.usfca.edu 
