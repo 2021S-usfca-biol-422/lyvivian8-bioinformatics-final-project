@@ -290,7 +290,7 @@ vcf_with_metadata %>%
 # Group by the collection date and the gene.
   tally() %>%
 # Counting variation of the ORF3a gene based on the collection date.
-  ggplot(aes(x = (Collection_Date),
+  ggplot(aes(x = Collection_Date,
              y = n)) +
 # Used to visualize the variation of the ORF3a gene over the
 # different collection dates on this dot plot.
