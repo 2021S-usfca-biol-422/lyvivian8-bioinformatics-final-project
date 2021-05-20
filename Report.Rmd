@@ -47,7 +47,7 @@ You may also want to use any of a range of different COVID data packages and dat
 * https://covidtracking.com/data/api
   * `readr::read_csv("https://api.covidtracking.com/v1/states/daily.csv")`
   
-In order to compare how the Corona-virus has progressed within 2019-2021, I extracted information of cases and deaths related to Sars-Cov-2 variants from covdata's database. The 'vcfR' [@vcfR] package then will be used  visualize, manipulate, and filter quality in vfcR files after it has been processed through the makefile within the git repository. Afterwards, I will use 'ggplot2' and 'ggthemes'[@ggthemes] to create visual representations of the processed samples from the Haute-de-France. The 'dplyr' [@dplyr] package will be used to further filter information from the provided datasets.
+In order to compare how the Corona-virus has progressed within 2019-2021, I extracted information of cases and deaths related to SARS-CoV-2 variants from covdata's database. The `vcfR` [@vcfR] package then will be used  visualize, manipulate, and filter quality in vfcR files after it has been processed through the makefile within the git repository. Afterwards, I will use `ggplot2` and `ggthemes` [@ggthemes] to create visual representations of the processed samples from the Haute-de-France. The `dplyr` [@dplyr] package will be used to further filter information from the provided datasets.
 
 # Results 
 
