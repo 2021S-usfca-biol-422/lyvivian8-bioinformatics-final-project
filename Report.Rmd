@@ -50,6 +50,7 @@ Sequencing Technology Platform: ILLUMINA
 
 # Results 
 
+In Figure 1, after sequencing all unique SNP locations within each gene across all samples, the S, N, and ORF3a genes contained the most SNPs location, indicating possible regions where mutations could occur. The S gene consisted of the most unique SNP locations, followed by the N gene and then the ORF3a gene. When the number of COVID-19 cases in France was extracted and constructed onto a line plot, the number of cases at the beginning of the epidemic in France was deficient and exponentially increased through time. On the other hand, when the number of deaths in France was recorded and then graphed onto a line plot, the number of deaths was extraordinarily high and then drastically fell before consistently rising during July 2020.  The pattern illustrated on the diagram was coherent to the mobility levels by transit recorded from March 2020 until the present. Simultaneously, there were very low transportation levels during April 2020; however, during July 2020, these mobility levels continued to increase until their peak during October 2020. These observations were similar to the mobility levels of transportation by walking and driving. As transportation mobility levels increase, higher variation was observed as we tracked the variation of the S, N, and ORF3a genes on a point diagram. Over the different collection dates, there is a higher variation of SNPs alterations from the previous collection date. 
 
 
 # Discussion
