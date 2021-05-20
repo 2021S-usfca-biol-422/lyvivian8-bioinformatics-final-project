@@ -1,5 +1,5 @@
 ---
-title: 'Completed Comparative Analysis of SARS-Cov-2 Haut-de-France Viral Sequenced Samples'
+title: 'Completed Comparative Analysis of SARS-CoV-2 Haut-de-France Viral Sequenced Samples'
 author: "Vivian Lynn Ly"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: pdf_document
@@ -19,15 +19,15 @@ knitr::opts_chunk$set(echo = FALSE,
 ```
 
 # Background and Overview
-This is a report on SARS-Cov-2, including some variant analysis [@koyama2020variant].
+This is a report on SARS-CoV-2, including some variant analysis [@koyama2020variant].
 
-This rmarkdown file will use the 'vcfR'[@vcfR], ggplot2'[@ggplot2], 'dplyr'[@dplyr], and 'covdata'[@covdata] packages in order to analyze positive sequenced Sars-Cov-2 samples from the Haute-de-France after it has been processed: 
+This rmarkdown file will use the `vcfR` [@vcfR], `ggplot2` [@ggplot2], `dplyr` [@dplyr], and `covdata` [@covdata] packages in order to analyze positive sequenced SARS-CoV-2 samples from the Haute-de-France after it has been processed: 
 
-Haute-de-France directly translates to the North of France is comprised of 5 cities: Oise, Aisne, Nord, Pas-de-Calais, and Somme. Towards the beginning of the pandemic back in March 2020, France recorded about only about 30 confirmed cases of the Corona-virus. However, the few confirmed cases of the Corona-virus does not explain the huge spike in Covid-related deaths. More analysis is required to understand how cases and reported deaths have increased.
+Haute-de-France directly translates to the North of France is comprised of 5 cities: Oise, Aisne, Nord, Pas-de-Calais, and Somme. Towards the beginning of the pandemic back in March 2020, France recorded about only about 30 confirmed cases of the Corona-virus. However, the few confirmed cases of the Corona-virus does not explain the huge spike in COVID-10 related deaths. More analysis is required to understand how cases and reported deaths have increased.
 
-More specifically, this pandemic has tremendously affected the wine industry, suburban neighborhoods, holidays, rituals, and most importantly France's economy. The objective of this analysis is to thoroughly comprehend how variants of Sars-Cov-2 has affected hospitalizations due to COVID and recorded deaths due to COVID by analyzing mobility information and variant tracking of genes. 
+More specifically, this pandemic has tremendously affected the wine industry, suburban neighborhoods, holidays, rituals, and most importantly France's economy. The objective of this analysis is to thoroughly comprehend how variants of SARS-CoV-2 has affected hospitalizations due to COVID-19 and recorded deaths due to COVID-19 by analyzing mobility information and variant tracking of genes. 
 
-How has mobility and gene variation in Haute-de-France positive sequenced samples affect the cases of hospitalization and deaths due to COVID?
+How has mobility and gene variation in Haute-de-France positive sequenced samples affect the cases of hospitalization and deaths due to COVID-19?
 
 This data is available from the following URL:
 https://www.ncbi.nlm.nih.gov/bioproject/724410
