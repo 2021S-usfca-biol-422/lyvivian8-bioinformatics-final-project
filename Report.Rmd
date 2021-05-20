@@ -1,5 +1,5 @@
 ---
-title: 'Comparative Analysis of SARS-Cov-2 Haut-de-France Viral Sequenced Samples'
+title: 'Completed Comparative Analysis of SARS-Cov-2 Haut-de-France Viral Sequenced Samples'
 author: "Vivian Lynn Ly"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: pdf_document
