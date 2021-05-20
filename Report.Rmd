@@ -19,7 +19,6 @@ knitr::opts_chunk$set(echo = FALSE,
 ```
 
 # Background and Overview
-This is a report on SARS-CoV-2, including some variant analysis [@koyama2020variant].
 
 This rmarkdown file will use the `vcfR` [@vcfR], `ggplot2` [@ggplot2], `dplyr` [@dplyr], and `covdata` [@covdata] packages in order to analyze positive sequenced SARS-CoV-2 samples from the Haute-de-France after it has been processed: 
 
