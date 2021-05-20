@@ -240,11 +240,11 @@ vcf_with_metadata %>%
 # derived from processing our data in the makefile.
   filter(!is.na(gene), gene == "S") %>%
 # Getting rid of snps that are not located within a gene.
-  group_by(Collection_Date, gene) %>%
+  group_by(collection_date, gene) %>%
 # Group by the collection date and the gene.
   tally() %>%
 # Counting variation of the S gene based on the collection date.
-  ggplot(aes(x = Collection_Date,
+  ggplot(aes(x = collection_date,
              y = n)) +
 # Used to visualize the variation of the S gene over the
 # different collection dates on this dot plot.
@@ -264,11 +264,11 @@ vcf_with_metadata %>%
 # were derived from processing our data in the makefile.
   filter(!is.na(gene), gene == "N") %>%
 # Getting rid of snps that are not located within a gene.
-  group_by(Collection_Date, gene) %>%
+  group_by(collection_date, gene) %>%
 # Group by the collection date and the gene.
   tally() %>%
 # Counting variation of the N gene based on the collection date.
-  ggplot(aes(x = Collection_Date,
+  ggplot(aes(x = collection_date,
              y = n)) +
 # Used to visualize the variation of the N gene over the
 # different collection dates on this dot plot.
@@ -287,11 +287,11 @@ vcf_with_metadata %>%
 # were derived from processing our data in the makefile.
   filter(!is.na(gene), gene == "ORF3a") %>%
 # Getting rid of snps that are not located within a gene.
-  group_by(Collection_Date, gene) %>%
+  group_by(collection_date, gene) %>%
 # Group by the collection date and the gene.
   tally() %>%
 # Counting variation of the ORF3a gene based on the collection date.
-  ggplot(aes(x = Collection_Date,
+  ggplot(aes(x = collection_date,
              y = n)) +
 # Used to visualize the variation of the ORF3a gene over the
 # different collection dates on this dot plot.
