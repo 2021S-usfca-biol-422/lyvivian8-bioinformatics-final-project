@@ -131,7 +131,7 @@ ggplot(aes(x = date,
        y = "Number of Positive Cases")
 
 ```
-**Figure 2**: This figure records the amount of positive sampled covid cases in the whole country of France. The figure also includes statistics from the Northern region of France. Two main characteristics to notice here is that there is no huge spike in cases towards April 2020. On the other hand, there is a large number of cases between 2020-07 and 2021-01. 
+**Figure 2**: This figure records the amount of positive sampled COVID-19 cases in the whole country of France. The figure also includes statistics from the Northern region of France. Two main characteristics to notice here is that there is no huge spike in cases towards April 2020. On the other hand, there is a large number of cases between 2020-07 and 2021-01. 
 
 ```{r Tracking Deaths due to Covid in France}
 covnat_weekly %>%
@@ -143,7 +143,7 @@ ggplot(aes(x = date,
        x = "Date",
        y = "Number of Deaths")
 ```
-**Figure 3**: The figure tracks the amount of deaths that have occurred between 2020 and 2021 during the Covid epidemic in France. As we can observe from this figure, there is a huge spike in deaths starting from March-April 2020 and then there is a sudden drop before exponentially increasing between July 2020 - January 2021. 
+**Figure 3**: The figure tracks the amount of deaths that have occurred between 2020 and 2021 during the COVID-19 epidemic in France. As we can observe from this figure, there is a huge spike in deaths starting from March-April 2020 and then there is a sudden drop before exponentially increasing between July 2020 - January 2021. 
 
 ```{r Transit-Mobility-Data-Nord-Pas-de-Calais Region, France}
 # Using apple mobility data set to observe how mobility in the
@@ -172,7 +172,7 @@ france_mobility %>%
        y = "Transportation by Transit Levels")
 # Creating a title for my diagram and labeling axis x and y.
 ```
-**Figure 4**: In this figure that diagrams transportation by transit mobility from the apple mobility dataset, there are two significant peaks that occur from July 2020 - October 2020. Compared to the visualization that illustrates the cases and numbers of deaths, the mobility by transit transportation correlates with the the trend shown in Figure 8 and Figure 9. However, this does not explain how the the amount of covid cases towards the beginning of this epidemic does not correlate to the amount of deaths that occurred. Further analysis is performed to examine this characteristic. 
+**Figure 4**: In this figure that diagrams transportation by transit mobility from the apple mobility dataset, there are two significant peaks that occur from July 2020 - October 2020. Compared to the visualization that illustrates the cases and numbers of deaths, the mobility by transit transportation correlates with the the trend shown in Figure 8 and Figure 9. However, this does not explain how the the amount of COVID-19 cases towards the beginning of this epidemic does not correlate to the amount of deaths that occurred. Further analysis is performed to examine this characteristic. 
 
 ```{r Walking-Mobility-Data-Nord-Pas-de-Calais Region, France}
 # Using apple mobility data set to observe how mobility in the
@@ -201,7 +201,7 @@ france_mobility %>%
        y = "Transportation by Walking Levels")
 # Creating a title for my diagram and labeling axis x and y.
 ```
-**Figure 5**: The figure illustrates transportation by walking mobility levels from the apple mobility data examining the Nord-Pas-de-Calais region of France. Similar to the previous figure, this diagram demonstrates a correlation between transportation by walking and the number of cases and deaths related to Covid-19. Unlike the previous figure, Figure 2, this visual shows us further indication of how there could have been a spike earlier on in the number of recorded deaths related to Covid-19. As we can observe from this figure, there are three prominent peaks that occur in March 2020, July 2020, and October 2020. However, this information still does not correlate with how low the numbers of confirmed Coronavirus cases there were in the beginning when the epidemic first began.
+**Figure 5**: The figure illustrates transportation by walking mobility levels from the apple mobility data examining the Nord-Pas-de-Calais region of France. Similar to the previous figure, this diagram demonstrates a correlation between transportation by walking and the number of cases and deaths related to COVID-19. Unlike the previous figure, Figure 2, this visual shows us further indication of how there could have been a spike earlier on in the number of recorded deaths related to COVID-19. As we can observe from this figure, there are three prominent peaks that occur in March 2020, July 2020, and October 2020. However, this information still does not correlate with how low the numbers of confirmed Corona-virus cases there were in the beginning when the epidemic first began.
 
 ```{r Driving-Mobility-Data-Nord-Pas-de-Calais Region, France}
 # Using covdata to observe driving mobility in France during the Covid Pandemic
@@ -253,7 +253,7 @@ geom_point() +
 # Creating a title for my diagram and labeling axis x and y.
 
 ```
-**Figure 7**: This figure demonstrates the amount of variation amongst the s-gene of the Sars-Cov-2 Haute-de-France positive sequenced samples based on the collection dates. As we can see over the period of the different collection dates the variation of S-gene increases. This indicates a susceptibility of possibly more mutations that can allow Sar-Cov-2 to become even more transmissible. 
+**Figure 7**: This figure demonstrates the amount of variation amongst the s-gene of the SARS-CoV-2 Haute-de-France positive sequenced samples based on the collection dates. As we can see over the period of the different collection dates the variation of S-gene increases. This indicates a susceptibility of possibly more mutations that can allow SARS-CoV-2 to become even more transmissible. 
 
 ```{r Tracking-N-Gene-Variation-Over-Time}
 # Tracking the variation of the N gene over the course of the pandemic
@@ -276,7 +276,7 @@ geom_point() +
          y = "Variation of the N Gene")
 # Creating a title for my diagram and labeling axis x and y.
 ```
-**Figure 8**: This diagram outlines the variation of the N-gene because it has the second to most unique locations of SNP which indicates that there are more locations where mutations could occur. After observing this figure, we can see an upward trend in variation of the N gene which is in agreement with how the cases of corona-virus and deaths related to Sars-Cov-2 increases as time continues. 
+**Figure 8**: This diagram outlines the variation of the N-gene because it has the second to most unique locations of SNP which indicates that there are more locations where mutations could occur. After observing this figure, we can see an upward trend in variation of the N gene which is in agreement with how the cases of Corona-virus and deaths related to SARS-CoV-2 increases as time continues. 
 
 ```{r Tracking-ORF3a-Gene-Variation-Over-Time}
 # Tracking the variation of the ORF3a gene over the course of the pandemic
@@ -299,7 +299,7 @@ geom_point() +
          y = "Variation of the ORF3a Gene")
 # Creating a title for my diagram and labeling axis x and y.
 ```
-**Figure 9**: Looking at the variation of the ORF3a gene of Sars-Cov-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. The upward trend over the course of the collection dates are consistent with the cases and deaths related to Sars-Cov-2. 
+**Figure 9**: Looking at the variation of the ORF3a gene of SARS-CoV-2 Haute-de-France positive sequenced samples from the beginning of the pandemic until now. The upward trend over the course of the collection dates are consistent with the cases and deaths related to SARS-CoV-2. 
 
 # Tables
 
@@ -369,6 +369,6 @@ vcf_with_metadata %>%
                              "Alternate",
                              "Count"))
 ```
-**Table 4**: The ORF3a gene is a viral nucleic acid sequence within the Sar-Cov-2 genetic information. This table measures the top occurrence of alternate nucleotides compared to the reference at the ORF3a gene. Similar to the previous the previous table, the larger the number of alternations, the higher chance there is for mutation. 
+**Table 4**: The ORF3a gene is a viral nucleic acid sequence within the SARS-CoV-2 genetic information. This table measures the top occurrence of alternate nucleotides compared to the reference at the ORF3a gene. Similar to the previous the previous table, the larger the number of alternations, the higher chance there is for mutation. 
 
 # Sources Cited
